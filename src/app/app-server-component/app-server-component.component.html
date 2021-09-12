@@ -1,0 +1,43 @@
+<p>
+  app-server-component works!
+</p>
+<div class="row">
+  <div class="col-xs-12"> 
+    <form>
+      <div class="row">
+      <div class="col-sm-4 form-group">
+      <label for="name">Investment Company Name</label>
+      <input type="text" id="name" 
+             placeholder="Enter any company name"
+            (input) ="enterCompanyname($event)"class="form-control">
+      </div>
+      <div class="col-sm-4 form-group">
+      <label for="type">Investment Type</label>
+      <input type="text" class="form-control" [(ngModel)]="investType" id="type" >
+      </div>
+      <div class="col-sm-4 form-group">
+      <label for="value">Investment Value</label>
+      <input type="text" id="value" class="form-control">
+      </div>
+      </div>
+      <div class="row">
+       <div class="col-xs-4 pull-right">
+        <button (click)="OnAddInvestment()" class="btn btn-success">Add Investment</button>
+        <button class="btn btn-failure">Delete Investment</button>
+      </div>
+      </div>
+    </form>
+    <p style="background-color: rgb(231, 233, 205);">{{ 'Investment Company Addition : ' }} {{ companyAdditionStatus }}</p>
+    <div >
+      <ul class="list-group">
+        <a
+          class="list-group-item"
+          style="cursor: pointer"
+          *ngFor="let server of servers;"
+        >
+        <p style="background-color: 'server.index ===2? chartreuse:crimson'"> {{server}} </p>
+        </a>
+      </ul>
+    </div>
+  </div>
+</div>

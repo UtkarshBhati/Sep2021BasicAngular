@@ -1,3 +1,23 @@
-<h1>
+<h1 align="center">
   {{title}}
 </h1>
+<hr>
+<br>
+<br>
+<!-- Lets Add the Warning Component here -->
+
+<app-warning-alert>{{name}}</app-warning-alert>
+
+
+<!-- Lets Add the manually created Success Component here -->
+<success-alert>{{success}}</success-alert>
+
+<!-- Add a button with a text field and use 2 way binding to show types string and on click
+clear the field button will be enabled only after input field is not empty -->
+
+<input type="text"  placeholder="Enter any server name"
+  (input)="onUpdateServerName($event)" />
+<input type="button" value="submit" (click)="onServerAdded2()" [disabled]="allowButtonAdd" class="btn btn-primary"/>
+<app-server-component > 
+	
+		</app-server-component>
