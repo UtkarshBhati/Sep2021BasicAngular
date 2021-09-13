@@ -8,6 +8,7 @@ import { every } from 'rxjs/operator/every';
 })
 export class AppServerComponentComponent implements OnInit {
   servers = [];
+  investTypes = [];
   companyName: string; // Using Data binding - on input event
   investType: string; // using 2-way binding - on ngModel input event
   companyAdditionStatus: string;
@@ -20,9 +21,17 @@ export class AppServerComponentComponent implements OnInit {
     //Its a text box for company
     this.companyName = (<HTMLInputElement>event.target).value;
   }
+ 
+  // enterInvestType(event : Event){
+  //   this.investType = (<HTMLInputElement>event.target).value;
+  // }
 
+  onAddInvestType(){
+    this.companyAdditionStatus ='Investment Type ' + this.investType;
+    this.investTypes.push(this.investType);
+  }
   OnAddInvestment(){
     this.servers.push(this.companyName);
-    this.companyAdditionStatus ='Server was created with Server Name ' + this.companyName;
+    this.companyAdditionStatus ='Company was created with  Name ' + this.companyName;
   }
 }

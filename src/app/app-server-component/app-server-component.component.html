@@ -13,7 +13,7 @@
       </div>
       <div class="col-sm-4 form-group">
       <label for="type">Investment Type</label>
-      <input type="text" class="form-control" [(ngModel)]="investType" id="type" >
+      <input type="text" class="form-control" [(ngModel)]="investType" [ngModelOptions]="{standalone: true}" id="type" >
       </div>
       <div class="col-sm-4 form-group">
       <label for="value">Investment Value</label>
@@ -23,11 +23,12 @@
       <div class="row">
        <div class="col-xs-4 pull-right">
         <button (click)="OnAddInvestment()" class="btn btn-success">Add Investment</button>
-        <button class="btn btn-failure">Delete Investment</button>
+        <button (click)="onAddInvestType()" class="btn btn-success">Add Investment Type</button>
       </div>
       </div>
     </form>
     <p style="background-color: rgb(231, 233, 205);">{{ 'Investment Company Addition : ' }} {{ companyAdditionStatus }}</p>
+    <p style="background-color: rgb(231, 233, 205);">{{ 'Investment Type  : ' }} {{ investType }}</p>
     <div >
       <ul class="list-group">
         <a
@@ -36,6 +37,18 @@
           *ngFor="let server of servers;"
         >
         <p style="background-color: 'server.index ===2? chartreuse:crimson'"> {{server}} </p>
+        </a>
+      </ul>
+    </div>
+    <br>
+    <div >
+      <ul class="list-group">
+        <a
+          class="list-group-item"
+          style="cursor: pointer"
+          *ngFor="let iTypes of investTypes;"
+        >
+        <p style="background-color: 'server.index ===2? chartreuse:crimson'"> {{iTypes}} </p>
         </a>
       </ul>
     </div>
